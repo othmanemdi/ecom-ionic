@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catégories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Catégories</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button size="small" fill="clear" color="primary" routerLink="/category-add">
+    <ion-icon slot="start" name="create-outline"></ion-icon>
+    Ajouter
+  </ion-button>
+
+  <ion-item *ngFor="let c of categories">
+    <ion-icon class="ion-padding-end" [ios]="c.icon + '-outline'" [md]="c.icon + '-sharp'"></ion-icon>
+    <ion-label>{{ c.name}}</ion-label>
+
+    <ion-button slot="end" color="primary" fill="outline" [routerLink]="[c.id]">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+
+
+    <ion-button class="ion-no-margin" slot="end" color="danger" fill="outline" (click)="onDelete(c)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+  </ion-item>
+
+</ion-content>
