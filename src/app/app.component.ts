@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -21,5 +23,25 @@ export class AppComponent {
     { title: 'Profil', url: 'profile', icon: 'log-out' },
     { title: 'Logout', url: 'login', icon: 'log-out' },
   ];
-  constructor() { }
+
+  constructor(public authService: AuthService) { }
+
+  // ionViewDidEnter() {
+  //   console.log(this.authService.authenticated);
+  //   console.log(this.authService.authenticatedUser);
+  //   this.loadUserInfo();
+  // }
+  // public loadUserInfo() {
+
+  //   this.authService.getUserInfo().subscribe(
+  //     (response) => {
+  //       localStorage.setItem('user_info', JSON.stringify({ name: response.name, email: response.email }));
+  //       this.authService.loadUser();
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+
 }

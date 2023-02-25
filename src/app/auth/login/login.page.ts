@@ -18,14 +18,25 @@ export class LoginPage implements OnInit {
   }
 
   onLogin(user: any) {
-    let authorise = this.authService.login(user.username, user.password);
-    // console.log(authorise)
-    if (authorise) {
+    const data: {} = {
+      email: user.email,
+      password: user.password,
+      device_name: "android"
+    };
+
+    console.log("data " + JSON.stringify(data))
+
+    let response = this.authService.login(data);
+
+    if (response == true) {
       this.presentToast("bottom", "Bien connecter")
       return this.router.navigateByUrl('/home');
     }
-    this.presentToast("bottom", "Email ou mot de passe incorrect")
-    return this.router.navigateByUrl('/login');
+    else {
+      // console.log(error);
+      this.presentToast("bottom", "Email ou mot de passe incorrect")
+      return this.router.navigateByUrl('/login');
+    }
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message: string, color: string = "dark") {

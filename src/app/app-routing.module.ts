@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'category',
-    loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryPageModule)
+    loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'product',
@@ -49,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'category-add',
-    loadChildren: () => import('./pages/category-add/category-add.module').then( m => m.CategoryAddPageModule)
+    loadChildren: () => import('./pages/category-add/category-add.module').then(m => m.CategoryAddPageModule)
   }
 ];
 

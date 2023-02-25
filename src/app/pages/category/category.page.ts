@@ -13,6 +13,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryPage implements OnInit {
 
   public categories!: Category[];
+
   constructor(private categoryService: CategoryService, private router: Router, private toastController: ToastController, private loadingCtr: LoadingController) {
   }
 
@@ -41,6 +42,7 @@ export class CategoryPage implements OnInit {
       message: "Loading...",
       spinner: "bubbles",
     })
+
     await loading.present();
     this.categoryService.getCategories().subscribe(
       (response: Category[]) => {
