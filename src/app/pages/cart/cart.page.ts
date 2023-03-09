@@ -11,5 +11,22 @@ export class CartPage implements OnInit {
 
   ngOnInit() {
   }
+  test(a: number) {
+    alert(a)
+  }
+
+  minus() {
+    alert('minus');
+  }
+  plus() {
+    alert('plus');
+  }
+  delete() {
+    alert('delete');
+  }
+
+  confirmOrder() {
+    alert('confirmOrder');
+  }
 
 }

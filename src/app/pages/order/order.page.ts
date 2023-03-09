@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order.page.scss'],
 })
 export class OrderPage implements OnInit {
+  public orders?: any = [{ 'id': 1 }, { 'id': 2 }, { 'id': 3 }];
 
   constructor() { }
 

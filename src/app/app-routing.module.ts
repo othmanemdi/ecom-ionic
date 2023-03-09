@@ -14,6 +14,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'category/:id',
+    loadChildren: () => import('./pages/category-edit/category-edit.module').then(m => m.CategoryEditPageModule)
+  },
+  {
     path: 'product',
     loadChildren: () => import('./pages/product/product.module').then(m => m.ProductPageModule)
   },
@@ -34,6 +38,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/order/order.module').then(m => m.OrderPageModule)
   },
   {
+    path: 'order/:id',
+    loadChildren: () => import('./pages/order-details/order-details.module').then(m => m.OrderDetailsPageModule)
+  },
+  {
     path: 'cart',
     loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartPageModule)
   },
@@ -44,10 +52,6 @@ const routes: Routes = [
   {
     path: 'shop',
     loadChildren: () => import('./pages/shop/shop.module').then(m => m.ShopPageModule)
-  },
-  {
-    path: 'category/:id',
-    loadChildren: () => import('./pages/category-edit/category-edit.module').then(m => m.CategoryEditPageModule)
   },
   {
     path: 'category-add',

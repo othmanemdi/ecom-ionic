@@ -14,6 +14,41 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-  </div>
+
+  <ion-breadcrumbs class="ion-margin-top">
+    <ion-breadcrumb routerLink="/home">Accueil</ion-breadcrumb>
+    <ion-breadcrumb routerLink="/shop">Boutique</ion-breadcrumb>
+  </ion-breadcrumbs>
+
+
+  <ion-list *ngIf="produits">
+
+    <ion-card *ngFor="let product of produits">
+      <img alt="Silhouette of mountains" height="200" width="auto" [src]="product.image" />
+      <ion-card-header>
+        <ion-card-subtitle> {{ product.category }}</ion-card-subtitle>
+        <ion-card-subtitle> {{ product.category }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <h5>
+          {{product.price | number : '3.2'}} DH
+        </h5>
+        <h5>
+          <ion-text color="danger fw-bold">
+            <del>
+              {{product.price | number : '3.2'}} DH
+            </del>
+          </ion-text>
+        </h5>
+      </ion-card-content>
+
+
+      <ion-button (click)="addToCart()" class="ion-margin-top" expand="block" color="dark">
+        <ion-icon slot="start" name="cart"></ion-icon>
+        Ajouter au panier
+      </ion-button>
+    </ion-card>
+
+  </ion-list>
 </ion-content>
